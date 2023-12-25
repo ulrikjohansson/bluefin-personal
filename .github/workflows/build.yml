@@ -1,7 +1,7 @@
 name: Build and Push Image
 on:
-  schedule:
-    - cron: '40 16 * * *'  # 16:40 UTC everyday
+  #schedule:
+  #  - cron: '40 16 * * *'  # 16:40 UTC everyday
   merge_group:
   pull_request:
     branches:
@@ -27,9 +27,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_flavor: [main, nvidia, asus, asus-nvidia, framework, surface, surface-nvidia]
+        image_flavor: [main, nvidia]
         base_name: [bluefin, bluefin-dx]
-        major_version: [38, 39]
+        major_version: [39]
         include:
           - major_version: 38
             is_latest_version: false
